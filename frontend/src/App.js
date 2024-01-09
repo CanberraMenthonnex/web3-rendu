@@ -7,6 +7,7 @@ import './styles/_app.scss';
 
 const App = () => {
   const test = '';
+  const test2 = '';
   return (
     <Router>
       <div className="app-container">
