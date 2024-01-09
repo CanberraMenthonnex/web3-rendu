@@ -18,4 +18,4 @@ contract QuizScore is ERC1155URIStorage, Ownable {
             _setURI(_tokenId, tokenURI);
             return _tokenId;
     }
-}a
+}
