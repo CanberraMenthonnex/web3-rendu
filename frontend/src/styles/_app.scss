@@ -1,0 +1,36 @@
+@import './variables';
+
+.app-container {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  background-color: $primary-color-background;
+  z-index: 0;
+  &:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    background-image: url('../../public/img/background.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    z-index: 0;
+  }
+
+
+  color: $primary-color-text;
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    z-index: 1;
+  }
+}
+
+
+
+
