@@ -1,7 +1,6 @@
 {
   "name": "hardhat-project",
   "scripts": {
-    "solhint": "./node_modules/.bin/solhint -f table contracts/**/*.sol",
     "prepare": "husky install"
   },
   "devDependencies": {
