@@ -6,6 +6,8 @@
   height: 100vh;
   background-color: $primary-color-background;
   z-index: 0;
+  font-family: $font-family;
+  overflow: hidden;
   &:before {
     content: ' ';
     display: block;
@@ -26,8 +28,10 @@
   color: $primary-color-text;
   .main-content {
     flex-grow: 1;
-    padding: 20px;
+    padding: 20px 40px;
     z-index: 1;
+    width: 100%;
+    overflow-y: scroll;
   }
 }
 
