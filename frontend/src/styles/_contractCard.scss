@@ -1,0 +1,54 @@
+@import './variables';
+@import "button";
+
+.contract-card {
+  background-color: $secondary-color-background;
+  width: calc(100% / #{$number-of-columns} - 20px - 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  z-index: 1;
+  padding: 15px;
+  border-radius: 15px;
+
+  * {
+    margin: 0;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      gap: 10px;
+      width: 100%;
+
+
+      h3 {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        color: $secondary-color-text;
+      }
+    }
+  }
+
+}
