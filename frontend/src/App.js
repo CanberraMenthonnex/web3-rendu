@@ -15,6 +15,7 @@ const App = () => {
             <Route path="/" element={<DashboardPage />} />
             {/* Ajoutez d'autres routes pour chaque page */}
           </Routes>
+          
         </div>
       </div>
     </Router>
