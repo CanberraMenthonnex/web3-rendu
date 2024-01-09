@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar';
 import './styles/_app.scss';
 
 const App = () => {
+  const test = '';
   return (
     <Router>
       <div className="app-container">
