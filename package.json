@@ -10,7 +10,7 @@
     "solhint": "^4.1.1"
   },
   "lint-staged": {
-    "**/*": "cd frontend && npx eslint src && prettier --write --ignore-unknown"
+    "**/*": "cd frontend && npx eslint src && prettify"
   }
 }
 
