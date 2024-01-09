@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettify": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
+    "prettify": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "pre-commit": "npx eslint src && prettify"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +47,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1"
+  },
+  "lint-staged": {
+    "frontend/*": "pre-commit"
   }
 }
