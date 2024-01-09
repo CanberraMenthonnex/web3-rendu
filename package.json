@@ -6,9 +6,6 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
-    "hardhat": "^2.19.4",
-    "solhint": "^4.1.1"
+    "hardhat": "^2.19.4"
   }
 }
-
-
