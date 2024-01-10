@@ -1,12 +1,15 @@
 import React from 'react';
-import '../styles/_header.scss';
+import './_header.scss';
 import { FaSearch } from 'react-icons/fa';
 
-const Header = (props) => {
+interface HeaderInterface {
+  accountAddress: string;
+}
 
+const Header: React.FC<HeaderInterface> = ({ accountAddress }) => {
   return (
     <header className="dashboard-header">
-      <div className="welcome-message">Welcome, {props.data}</div>
+      <div className="welcome-message">Welcome, {accountAddress}</div>
       <div className="profile-search-container">
         <div className="search-container">
           <FaSearch className="search-icon" />
