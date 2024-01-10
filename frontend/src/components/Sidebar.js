@@ -3,21 +3,19 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaUser, FaSignOutAlt } from 'react-icons/fa';
 import '../styles/_sidebar.scss';
-import {useCustomWalltetConnection} from "../hooks/useCustomWalltetConnection";
+import { useCustomWalltetConnection } from '../hooks/useCustomWalltetConnection';
 
 const Sidebar = () => {
   const location = useLocation();
-    const {
-        handleDisconnect
-    } = useCustomWalltetConnection();
+  const { handleDisconnect } = useCustomWalltetConnection();
   return (
     <div className="sidebar">
       <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
         <FaHome />
       </Link>
-      <Link onClick={handleDisconnect}>
+      <button onClick={handleDisconnect}>
         <FaSignOutAlt />
-      </Link>
+      </button>
     </div>
   );
 };
