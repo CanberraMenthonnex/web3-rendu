@@ -4,9 +4,8 @@ import { useEffect, useState } from 'react';
 export const useCustomWalltetConnection = () => {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
   const connectedWallets = useWallets();
-  const [accountAddress, setAccountAddress] = useState(null);
   const [error, setError] = useState(null);
-
+  const [accountAddress, setAccountAddress] = useState('');
   const handleConnect = async () => {
     try {
       const request = await connect();
@@ -20,12 +19,14 @@ export const useCustomWalltetConnection = () => {
   };
 
   const handleDisconnect = async () => {
+    console.log('ici');
     try {
       if (wallet) {
         await disconnect(wallet);
       }
       localStorage.removeItem('account-address');
       setAccountAddress(null);
+      window.location.reload();
     } catch (error) {
       setError('Une erreur est survenue lors de la déconnexion');
     }
@@ -40,9 +41,9 @@ export const useCustomWalltetConnection = () => {
   return {
     wallet,
     handleConnect,
+    handleDisconnect,
     accountAddress,
     error,
-    handleDisconnect,
     connectedWallets,
     connecting,
   };
