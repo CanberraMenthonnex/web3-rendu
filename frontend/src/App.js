@@ -3,9 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DashboardPage from './pages/DashboardPage';
 import Sidebar from './components/Sidebar';
+import './styles/_reset.scss';
 import './styles/_app.scss';
-import { ConnectWallet } from './services/ConnectWallet';
-
 
 const App = () => {
   return (
