@@ -63,7 +63,6 @@ const App = () => {
     <Router>
       <Web3OnboardProvider web3Onboard={web3Onboard}>
         <div className="app-container">
-          <Sidebar />
           <div className="main-content">
             <Routes>
               <Route path="/" element={<DashboardPage />} />
