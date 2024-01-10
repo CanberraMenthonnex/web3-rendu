@@ -7,14 +7,9 @@ import '../styles/_dashboard.scss';
 import { useCustomWalltetConnection } from '../hooks/useCustomWalltetConnection';
 
 const DashboardPage = () => {
-  const {
-    wallet,
-    connectedWallets,
-    handleConnect,
-    accountAddress,
-    handleDisconnect,
-    connecting,
-  } = useCustomWalltetConnection();
+  const { wallet, handleConnect, accountAddress, connecting } =
+    useCustomWalltetConnection();
+
   return (
     <div className="dashboard-container">
       {accountAddress ? (
