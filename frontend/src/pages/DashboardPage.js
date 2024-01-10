@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Dashboard from '../components/Dashboard';
 import Header from '../components/Header';
+import { useConnectWallet, useWallets } from '@web3-onboard/react';
+import Sidebar from '../components/Sidebar';
+import '../styles/_dashboard.scss';
 import { useCustomWalltetConnection } from '../hooks/useCustomWalltetConnection';
 
 const DashboardPage = () => {
@@ -10,22 +13,27 @@ const DashboardPage = () => {
     handleConnect,
     accountAddress,
     handleDisconnect,
+    connecting,
   } = useCustomWalltetConnection();
   return (
-    <div>
-      <Header />
-      {!accountAddress ? (
+    <div className="dashboard-container">
+      {accountAddress ? (
         <>
-          <button onClick={handleConnect}>connexion</button>
+          <Sidebar />
+          <div className="dashboard-content">
+            <Header />
+            <h1>Tableau de bord</h1>
+            <Dashboard />
+          </div>
         </>
       ) : (
-        <>
-          {accountAddress}
-          <button onClick={handleDisconnect}>disconnect</button>
-        </>
+        <div className="dashboard-login">
+          <p>Connect your wallet to continue</p>
+          <button onClick={handleConnect} disabled={connecting}>
+            {connecting ? 'Connecting...' : 'Connect Wallet'}
+          </button>
+        </div>
       )}
-      <h1>Tableau de bord</h1>
-      <Dashboard />
     </div>
   );
 };

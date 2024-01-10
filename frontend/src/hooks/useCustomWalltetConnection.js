@@ -44,5 +44,6 @@ export const useCustomWalltetConnection = () => {
     error,
     handleDisconnect,
     connectedWallets,
+    connecting,
   };
 };
