@@ -3,11 +3,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DashboardPage from './pages/DashboardPage';
 import Sidebar from './components/Sidebar';
+import './styles/_reset.scss';
 import './styles/_app.scss';
 
 const App = () => {
-  const test = 'dsqdsqdq';
-
   return (
     <Router>
       <div className="app-container">
