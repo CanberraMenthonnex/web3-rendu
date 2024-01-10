@@ -6,8 +6,8 @@
   width: calc(100% / #{$number-of-columns} - 20px - 30px);
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
   z-index: 1;
   padding: 15px;
   border-radius: 15px;
@@ -45,8 +45,8 @@
     &-text {
       display: flex;
       flex-direction: column;
-      align-items: start;
-      justify-content: start;
+      align-items: flex-start;
+      justify-content: flex-start;
       gap: 10px;
       width: 100%;
 
