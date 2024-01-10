@@ -6,6 +6,8 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
+    max-width: 1920px;
+    margin-top: 40px;
   }
   &-container {
     display: flex;
@@ -24,6 +26,9 @@
     min-height: 100vh;
     transition: all 0.5s ease-in-out;
     animation: apparition 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &::-webkit-scrollbar {
       visibility: hidden;

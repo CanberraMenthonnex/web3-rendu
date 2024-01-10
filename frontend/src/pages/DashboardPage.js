@@ -15,7 +15,7 @@ const DashboardPage = () => {
         <>
           <Sidebar />
           <div className="dashboard-content">
-            <Header />
+            <Header data={accountAddress}/>
             <h1>Tableau de bord</h1>
             <Dashboard />
           </div>
