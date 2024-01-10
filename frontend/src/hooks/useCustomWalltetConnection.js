@@ -6,6 +6,7 @@ export const useCustomWalltetConnection = () => {
   const connectedWallets = useWallets();
   const [accountAddress, setAccountAddress] = useState(null);
   const [error, setError] = useState(null);
+
   const handleConnect = async () => {
     try {
       const request = await connect();
@@ -18,12 +19,6 @@ export const useCustomWalltetConnection = () => {
     }
   };
 
-  useEffect(() => {
-    if (localStorage.getItem('account-address')) {
-      setAccountAddress(localStorage.getItem('account-address'));
-    }
-  }, [wallet, accountAddress]);
-
   const handleDisconnect = async () => {
     try {
       if (wallet) {
@@ -35,6 +30,12 @@ export const useCustomWalltetConnection = () => {
       setError('Une erreur est survenue lors de la déconnexion');
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('account-address')) {
+      setAccountAddress(localStorage.getItem('account-address'));
+    }
+  }, [wallet, accountAddress]);
 
   return {
     wallet,

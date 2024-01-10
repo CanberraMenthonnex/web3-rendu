@@ -4,9 +4,13 @@ import Header from '../components/Header';
 import { useCustomWalltetConnection } from '../hooks/useCustomWalltetConnection';
 
 const DashboardPage = () => {
-  const { wallet, handleConnect, accountAddress, handleDisconnect } =
-    useCustomWalltetConnection();
-
+  const {
+    wallet,
+    connectedWallets,
+    handleConnect,
+    accountAddress,
+    handleDisconnect,
+  } = useCustomWalltetConnection();
   return (
     <div>
       <Header />
