@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Dashboard from '../components/Dashboard';
 import Header from '../components/Header';
-import { useConnectWallet, useWallets } from '@web3-onboard/react';
+import { useCustomWalltetConnection } from '../hooks/useCustomWalltetConnection';
 
 const DashboardPage = () => {
-  const [{ wallet, connecting }, connectWallet] = useConnectWallet();
-  const connectedWallets = useWallets();
-  const handleConnect = async () => {
-    connectWallet();
-  };
+  const { wallet, handleConnect, accountAddress, handleDisconnect } =
+    useCustomWalltetConnection();
+
   return (
     <div>
       <Header />
-      <button onClick={handleConnect} disabled={connecting}>
-        {connecting ? 'Connecting...' : 'Connect Wallet'}
-      </button>
-      {wallet && wallet.accounts[0].address}
+      {!accountAddress ? (
+        <>
+          <button onClick={handleConnect}>connexion</button>
+        </>
+      ) : (
+        <>
+          {accountAddress}
+          <button onClick={handleDisconnect}>disconnect</button>
+        </>
+      )}
       <h1>Tableau de bord</h1>
       <Dashboard />
     </div>
