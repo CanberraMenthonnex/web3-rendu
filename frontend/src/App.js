@@ -6,18 +6,60 @@ import Sidebar from './components/Sidebar';
 import './styles/_reset.scss';
 import './styles/_app.scss';
 
+import { Web3OnboardProvider, init } from '@web3-onboard/react';
+import injectedModule from '@web3-onboard/injected-wallets';
+const infuraKey = '<INFURA_KEY>';
+const MAINNET_RPC_URL = `https://mainnet.infura.io/v3/${infuraKey}`;
+const wallets = [injectedModule()];
+const web3Onboard = init({
+  wallets,
+  chains: [
+    {
+      id: '0x1',
+      token: 'ETH',
+      label: 'Ethereum Mainnet',
+      rpcUrl: MAINNET_RPC_URL,
+    },
+    {
+      id: 42161,
+      token: 'ARB-ETH',
+      label: 'Arbitrum One',
+      rpcUrl: 'https://rpc.ankr.com/arbitrum',
+    },
+    {
+      id: '0xa4ba',
+      token: 'ARB',
+      label: 'Arbitrum Nova',
+      rpcUrl: 'https://nova.arbitrum.io/rpc',
+    },
+    {
+      id: '0x2105',
+      token: 'ETH',
+      label: 'Base',
+      rpcUrl: 'https://mainnet.base.org',
+    },
+  ],
+  appMetadata: {
+    name: 'Web3-Onboard Demo',
+    icon: '<svg>App Icon</svg>',
+    description: 'A demo of Web3-Onboard.',
+  },
+});
+
 const App = () => {
   return (
     <Router>
-      <div className="app-container">
-        <Sidebar />
-        <div className="main-content">
-          <Routes>
-            <Route path="/" element={<DashboardPage />} />
-            {/* Ajoutez d'autres routes pour chaque page */}
-          </Routes>
+      <Web3OnboardProvider web3Onboard={web3Onboard}>
+        <div className="app-container">
+          <Sidebar />
+          <div className="main-content">
+            <Routes>
+              <Route path="/" element={<DashboardPage />} />
+              {/* Ajoutez d'autres routes pour chaque page */}
+            </Routes>
+          </div>
         </div>
-      </div>
+      </Web3OnboardProvider>
     </Router>
   );
 };
