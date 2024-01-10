@@ -2,10 +2,11 @@ import React from 'react';
 import '../styles/_header.scss';
 import { FaSearch } from 'react-icons/fa';
 
-const Header = () => {
+const Header = (props) => {
+
   return (
     <header className="dashboard-header">
-      <div className="welcome-message">Welcome, [Name]</div>
+      <div className="welcome-message">Welcome, {props.data}</div>
       <div className="profile-search-container">
         <div className="search-container">
           <FaSearch className="search-icon" />
