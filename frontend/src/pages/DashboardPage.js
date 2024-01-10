@@ -2,6 +2,9 @@ import React from 'react';
 import Dashboard from '../components/Dashboard';
 import Header from '../components/Header';
 import { useConnectWallet, useWallets } from '@web3-onboard/react';
+import Sidebar from "../components/Sidebar";
+import '../styles/_dashboard.scss';
+
 
 const DashboardPage = () => {
   const [{ wallet, connecting }, connectWallet] = useConnectWallet();
@@ -9,17 +12,26 @@ const DashboardPage = () => {
   const handleConnect = async () => {
     connectWallet();
   };
-  return (
-    <div>
-      <Header />
-      <button onClick={handleConnect} disabled={connecting}>
-        {connecting ? 'Connecting...' : 'Connect Wallet'}
-      </button>
-      {wallet && wallet.accounts[0].address}
-      <h1>Tableau de bord</h1>
-      <Dashboard />
-    </div>
-  );
+    return (
+        <div className="dashboard-container">
+            {wallet? <>
+                <Sidebar />
+                <div className="dashboard-content">
+                    <Header />
+                    <h1>Tableau de bord</h1>
+                    <Dashboard  />
+                </div>
+            </> : <div className="dashboard-login">
+              <p>Connect your wallet to continue</p>
+                <button onClick={handleConnect} disabled={connecting}>
+                {connecting ? 'Connecting...' : 'Connect Wallet'}
+            </button>
+            </div>
+            }
+
+
+        </div>
+    );
 };
 
 export default DashboardPage;

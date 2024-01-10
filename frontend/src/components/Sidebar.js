@@ -13,14 +13,14 @@ const Sidebar = () => {
         <FaHome />
       </Link>
       <Link
-        to="/profile"
-        className={location.pathname === '/profile' ? 'active' : ''}
+        to="/"
+        className={location.pathname === '/#' ? 'active' : ''}
       >
         <FaUser />
       </Link>
       <Link
-        to="/contracts"
-        className={location.pathname === '/contracts' ? 'active' : ''}
+        to="/"
+        className={location.pathname === '/#' ? 'active' : ''}
       >
         <FaList />
       </Link>

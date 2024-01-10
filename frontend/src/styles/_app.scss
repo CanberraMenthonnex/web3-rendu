@@ -23,13 +23,16 @@
     background-size: cover;
     z-index: 0;
   }
+  .connect-wallet-container{
+    z-index: 1;
+  }
 
   color: $primary-color-text;
   .main-content {
     flex-grow: 1;
-    padding: 20px 40px;
+    padding: 0px 40px 20px 0;
     z-index: 1;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
   }
 }
