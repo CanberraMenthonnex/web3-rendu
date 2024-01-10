@@ -6,7 +6,6 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
-
   }
   &-container {
     display: flex;
@@ -15,31 +14,28 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-
   }
 
   &-content {
     margin-top: 20px;
     overflow-y: scroll;
-    width :calc(100% - 75px);
+    width: calc(100% - 75px);
     margin-left: 20px;
     min-height: 100vh;
     transition: all 0.5s ease-in-out;
     animation: apparition 0.5s ease-in-out;
-
 
     &::-webkit-scrollbar {
       visibility: hidden;
     }
 
     @keyframes apparition {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
 

@@ -8,14 +8,22 @@ import './styles/_app.scss';
 
 import { Web3OnboardProvider, init } from '@web3-onboard/react';
 import injectedModule from '@web3-onboard/injected-wallets';
+
 const infuraKey = '<INFURA_KEY>';
 const MAINNET_RPC_URL = `https://mainnet.infura.io/v3/${infuraKey}`;
 const wallets = [injectedModule()];
 const web3Onboard = init({
+  theme: 'dark',
   wallets,
   chains: [
     {
       id: '0x1',
+      token: 'ETH',
+      label: 'Ethereum Mainnet',
+      rpcUrl: MAINNET_RPC_URL,
+    },
+    {
+      id: '0xe298',
       token: 'ETH',
       label: 'Ethereum Mainnet',
       rpcUrl: MAINNET_RPC_URL,
@@ -40,9 +48,13 @@ const web3Onboard = init({
     },
   ],
   appMetadata: {
-    name: 'Web3-Onboard Demo',
-    icon: '<svg>App Icon</svg>',
-    description: 'A demo of Web3-Onboard.',
+    name: 'Connect Wallet Example',
+    icon: '<svg>My App Icon</svg>',
+    description: 'Example showcasing how to connect a wallet.',
+    recommendedInjectedWallets: [
+      { name: 'MetaMask', url: 'https://metamask.io' },
+      { name: 'Coinbase', url: 'https://wallet.coinbase.com/' },
+    ],
   },
 });
 

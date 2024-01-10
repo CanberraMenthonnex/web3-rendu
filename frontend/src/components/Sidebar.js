@@ -12,16 +12,10 @@ const Sidebar = () => {
       <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
         <FaHome />
       </Link>
-      <Link
-        to="/"
-        className={location.pathname === '/#' ? 'active' : ''}
-      >
+      <Link to="/" className={location.pathname === '/#' ? 'active' : ''}>
         <FaUser />
       </Link>
-      <Link
-        to="/"
-        className={location.pathname === '/#' ? 'active' : ''}
-      >
+      <Link to="/" className={location.pathname === '/#' ? 'active' : ''}>
         <FaList />
       </Link>
       {/* Ajoutez d'autres liens avec des icônes pour chaque page */}
