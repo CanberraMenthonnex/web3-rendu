@@ -4,14 +4,34 @@ import Header from '../components/Header';
 import { useConnectWallet, useWallets } from '@web3-onboard/react';
 import Sidebar from "../components/Sidebar";
 import '../styles/_dashboard.scss';
+import { ethers } from 'ethers';
+import QuizScore from '../contracts/QuizScore.json';
 
 
 const DashboardPage = () => {
+  let contract = null
+
   const [{ wallet, connecting }, connectWallet] = useConnectWallet();
   const connectedWallets = useWallets();
   const handleConnect = async () => {
     connectWallet();
   };
+
+  const QuizScoreAbi = QuizScore.abi;
+  const QuizScoreAddress = '0x1FbE120DBE44245eD91B2161f0e0885b158c3000';
+
+  if (wallet) {
+    const ethersProvider = new ethers.BrowserProvider(wallet.provider, 'any')
+    const signer = ethersProvider.getSigner();
+
+    contract = new ethers.Contract(QuizScoreAddress, QuizScoreAbi, signer);
+    console.log(contract);
+  }
+
+  const handleMint = async () => {
+    await contract.awardItem(wallet.accounts[0].address, "tokenUri");
+  };
+
     return (
         <div className="dashboard-container">
             {wallet? <>
@@ -28,10 +48,13 @@ const DashboardPage = () => {
             </button>
             </div>
             }
+            
+            <button onClick={handleMint}>TEST MINT</button>
 
 
         </div>
     );
+
 };
 
 export default DashboardPage;
