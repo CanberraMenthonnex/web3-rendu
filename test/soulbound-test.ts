@@ -19,7 +19,7 @@ describe("Soulbound", () => {
     });
 
     it("Should emit TokenAwarded event when awarding item", async () => {
-        const {deployed_contract, owner, addr1} = await loadFixture(deployTokenFixture);
+        const {deployed_contract, addr1} = await loadFixture(deployTokenFixture);
         await expect(deployed_contract.awardItem(addr1.address, "tokenURI"))
             .to.emit(deployed_contract, "TokenAwarded")
             .withArgs(addr1.address, 1, "tokenURI");
