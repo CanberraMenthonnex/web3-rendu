@@ -1,24 +1,23 @@
 // src/components/Sidebar.js
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaUser, FaList } from 'react-icons/fa';
+import { FaHome, FaUser, FaSignOutAlt } from 'react-icons/fa';
 import '../styles/_sidebar.scss';
+import {useCustomWalltetConnection} from "../hooks/useCustomWalltetConnection";
 
 const Sidebar = () => {
   const location = useLocation();
-
+    const {
+        handleDisconnect
+    } = useCustomWalltetConnection();
   return (
     <div className="sidebar">
       <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
         <FaHome />
       </Link>
-      <Link to="/" className={location.pathname === '/#' ? 'active' : ''}>
-        <FaUser />
+      <Link onClick={handleDisconnect}>
+        <FaSignOutAlt />
       </Link>
-      <Link to="/" className={location.pathname === '/#' ? 'active' : ''}>
-        <FaList />
-      </Link>
-      {/* Ajoutez d'autres liens avec des icônes pour chaque page */}
     </div>
   );
 };
