@@ -1,6 +1,10 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "prepare": "husky install"
+  },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
     "hardhat": "^2.19.4"
   },
