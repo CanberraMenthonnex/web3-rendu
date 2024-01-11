@@ -18,7 +18,7 @@ const DashboardPage = () => {
   };
 
   const QuizScoreAbi = QuizScore.abi;
-  const QuizScoreAddress = '0x1FbE120DBE44245eD91B2161f0e0885b158c3000';
+  const QuizScoreAddress = '0x6f1aE4F5c15ca0554807A42f90985f8A353e85B5';
 
 
   const handleMint = async () => {
