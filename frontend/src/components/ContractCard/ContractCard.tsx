@@ -1,6 +1,11 @@
 import React from 'react';
-import '../styles/_contractCard.scss';
-const ContractCard = ({ contract }) => {
+import './_contractCard.scss';
+
+interface ContractCardInterface {
+  contract: ContractItemInterface;
+}
+
+const ContractCard: React.FC<ContractCardInterface> = ({ contract }) => {
   return (
     <div className="contract-card">
       <img

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",                                // Spécifie la version cible d'ECMAScript
+    "lib": ["dom", "dom.iterable", "esnext"],       // Librairies à inclure dans la compilation
+    "allowJs": true,                                // Autorise les fichiers JavaScript
+    "skipLibCheck": true,                           // Ignore les vérifications de types pour les fichiers de déclaration
+    "esModuleInterop": true,                        // Active l'interopérabilité des modules ES6 par défaut
+    "allowSyntheticDefaultImports": true,           // Permet les imports par défaut pour les modules sans export par défaut
+    "strict": true,                                 // Active le mode strict
+    "forceConsistentCasingInFileNames": true,       // Force la cohérence de la casse dans les noms de fichiers
+    "noFallthroughCasesInSwitch": true,             // Signale les erreurs de 'case' sans 'break' dans les switch
+    "module": "esnext",                             // Définit le mode de génération de code pour les modules
+    "moduleResolution": "node",                     // Stratégie de résolution de module
+    "resolveJsonModule": true,                      // Inclut les modules JSON
+    "isolatedModules": true,                        // Assure que chaque fichier peut être compilé séparément
+    "noEmit": true,                                 // N'émet pas de fichiers de sortie
+    "jsx": "react-jsx"                              // Spécifie le mode JSX
+  },
+  "include": [
+    "src"                                           // Inclut les fichiers du dossier 'src'
+  ],
+  "exclude": [
+    "node_modules", "build",                        // Exclut les dossiers 'node_modules' et 'build'
+    "**/*.spec.ts", "**/*.test.ts"                  // Exclut les fichiers de test
+  ]
+}

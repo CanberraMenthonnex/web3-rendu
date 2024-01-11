@@ -1,11 +1,12 @@
-// src/components/Sidebar.js
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaUser, FaSignOutAlt } from 'react-icons/fa';
-import '../styles/_sidebar.scss';
-import { useCustomWalltetConnection } from '../hooks/useCustomWalltetConnection';
+import { FaHome, FaSignOutAlt } from 'react-icons/fa';
+import './_sidebar.scss';
+import { useCustomWalltetConnection } from '../../hooks/useCustomWalltetConnection';
 
-const Sidebar = () => {
+interface SidebarInterface {}
+
+const Sidebar: React.FC<SidebarInterface> = () => {
   const location = useLocation();
   const { handleDisconnect } = useCustomWalltetConnection();
   return (
