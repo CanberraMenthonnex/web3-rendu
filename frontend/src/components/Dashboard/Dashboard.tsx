@@ -34,17 +34,7 @@ const Dashboard: React.FC<DashboardInterface> = () => {
           id: 4,
           title: 'Contrat 4',
           description: 'Description du contrat 4',
-        },
-        {
-          id: 5,
-          title: 'Contrat 5',
-          description: 'Description du contrat 5',
-        },
-        {
-          id: 6,
-          title: 'Contrat 6',
-          description: 'Description du contrat 6',
-        },
+        }
       ]);
     };
 
