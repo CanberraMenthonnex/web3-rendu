@@ -20,15 +20,15 @@ const DashboardPage = () => {
   const QuizScoreAbi = QuizScore.abi;
   const QuizScoreAddress = '0x1FbE120DBE44245eD91B2161f0e0885b158c3000';
 
-  if (wallet) {
-    const ethersProvider = new ethers.BrowserProvider(wallet.provider, 'any')
-    const signer = ethersProvider.getSigner();
-
-    contract = new ethers.Contract(QuizScoreAddress, QuizScoreAbi, signer);
-    console.log(contract);
-  }
 
   const handleMint = async () => {
+    if (wallet) {
+      const ethersProvider = new ethers.BrowserProvider(wallet.provider, 'any')
+      const signer = await ethersProvider.getSigner();
+
+      contract = new ethers.Contract(QuizScoreAddress, QuizScoreAbi, signer);
+      console.log(contract);
+    }
     await contract.awardItem(wallet.accounts[0].address, "tokenUri");
   };
 
