@@ -4,13 +4,11 @@ import Header from '../layouts/Header/Header';
 import Sidebar from '../layouts/Sidebar/Sidebar';
 import './_dashboard.scss';
 import { useCustomWalltetConnection } from '../hooks/useCustomWalltetConnection';
-import {ethers} from "ethers";
+import { ethers } from 'ethers';
 import QuizScore from '../contracts/QuizScore.json';
 
-interface DashboardPageInterface {}
-
-const DashboardPage: React.FC<DashboardPageInterface> = () => {
-  const { handleConnect, accountAddress, connecting , wallet} =
+const DashboardPage: React.FC = () => {
+  const { handleConnect, accountAddress, connecting, wallet } =
     useCustomWalltetConnection();
 
   const QuizScoreAbi = QuizScore.abi;
@@ -18,12 +16,16 @@ const DashboardPage: React.FC<DashboardPageInterface> = () => {
 
   const handleMint = async () => {
     if (wallet) {
-      const ethersProvider = new ethers.BrowserProvider(wallet.provider, 'any')
+      const ethersProvider = new ethers.BrowserProvider(wallet.provider, 'any');
       const signer = await ethersProvider.getSigner();
 
-      const contract = new ethers.Contract(QuizScoreAddress, QuizScoreAbi, signer);
+      const contract = new ethers.Contract(
+        QuizScoreAddress,
+        QuizScoreAbi,
+        signer
+      );
       console.log(contract);
-      await contract.awardItem(wallet.accounts[0].address, "tokenUri");
+      await contract.awardItem(wallet.accounts[0].address, 'tokenUri');
     }
   };
   return (

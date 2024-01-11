@@ -1,4 +1,4 @@
-interface ContractItemInterface {
+export interface ContractItemInterface {
   id: number;
   title: string;
   description: string;

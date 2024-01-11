@@ -1,16 +1,14 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import DashboardPage from './pages/DashboardPage';
 import './styles/_reset.scss';
 import './styles/_app.scss';
 
 import { Web3OnboardProvider, init } from '@web3-onboard/react';
 import injectedModule from '@web3-onboard/injected-wallets';
+import DashboardPage from './pages/DashboardPage';
 
-interface AppInterface {}
-
-const infuraKey: string = '<INFURA_KEY>';
+const infuraKey = '<INFURA_KEY>';
 const MAINNET_RPC_URL = `https://mainnet.infura.io/v3/${infuraKey}`;
 const wallets = [injectedModule()];
 const web3Onboard = init({
@@ -59,7 +57,7 @@ const web3Onboard = init({
   },
 });
 
-const App: React.FC<AppInterface> = () => {
+const App: React.FC = () => {
   return (
     <Router>
       <Web3OnboardProvider web3Onboard={web3Onboard}>
@@ -67,7 +65,6 @@ const App: React.FC<AppInterface> = () => {
           <div className="main-content">
             <Routes>
               <Route path="/" element={<DashboardPage />} />
-              {/* Ajoutez d'autres routes pour chaque page */}
             </Routes>
           </div>
         </div>
