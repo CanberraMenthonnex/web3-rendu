@@ -65,7 +65,6 @@ const App: React.FC = () => {
           <div className="main-content">
             <Routes>
               <Route path="/" element={<DashboardPage />} />
-              {/* Ajoutez d'autres routes pour chaque page */}
             </Routes>
           </div>
         </div>
