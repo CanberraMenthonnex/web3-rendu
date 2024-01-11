@@ -14,7 +14,7 @@ contract QuizScore is ERC1155URIStorage, Ownable {
 
     function awardItem(address to, string memory tokenURI)
         public
-        onlyOwner
+        payable
         returns (uint256){
             _tokenId++;
             _mint(to, _tokenId, 1, "");

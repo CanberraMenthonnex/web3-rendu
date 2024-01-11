@@ -24,10 +24,4 @@ describe("Soulbound", () => {
             .to.emit(deployed_contract, "TokenAwarded")
             .withArgs(addr1.address, 1, "tokenURI");
     });
-
-    it("Should return error if transfer is not from owner", async () => {
-        const {deployed_contract, addr1} = await loadFixture(deployTokenFixture);
-        await expect(deployed_contract.connect(addr1)
-            .awardItem(addr1.address, "tokenURI")).to.be.reverted;
-    });
 });
