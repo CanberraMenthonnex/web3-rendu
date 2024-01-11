@@ -8,8 +8,6 @@ import { ethers } from "ethers";
 import QuizScore from '../contracts/QuizScore.json';
 import { NFTStorage } from "nft.storage";
 import nftImage from '../images/nft.jpeg';
-import path from 'path';
-import fs from 'fs'
 
 
 interface DashboardPageInterface {
@@ -22,22 +20,16 @@ const DashboardPage: React.FC<DashboardPageInterface> = () => {
   const QuizScoreAbi = QuizScore.abi;
   const QuizScoreAddress = '0x6f1aE4F5c15ca0554807A42f90985f8A353e85B5';
 
-  const getExampleImage = async () => {
-    const imageOriginUrl = "https://user-images.githubusercontent.com/87873179/144324736-3f09a98e-f5aa-4199-a874-13583bf31951.jpg"
-    const r = await fetch(imageOriginUrl);
-    console.log(r)
-    if (!r.ok) {
-      console.log('failed to fetch image');
-    }
-    return r.blob()
-  }
-
 
   const generateMetadata = async () => {
+
+    const fileObject = new File([nftImage], "nft", { type: "jpeg" });
+
+
     return {
       name: 'Quizz n°1',
       description: 'A certificate that you have passed the first quizz',
-      image: getExampleImage(),
+      image: fileObject,
       properties: {
         score: Math.floor(Math.random() * 20) + 1,
         date: new Date().toLocaleDateString(),
@@ -48,7 +40,7 @@ const DashboardPage: React.FC<DashboardPageInterface> = () => {
   }
 
   const deployMetadata = async () => {
-    const NFTStorageToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDBiYkNFQUQ4YjRCNTY0ODVFNkE0OTBEYzQzYzk4QjU5MDk1NTg2NDIiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTcwNDgwNTkxOTIyNSwibmFtZSI6IklJTS10ZXN0In0.up5zRl8_YyyJjJpviZ1oGq4Sm0iuj0nRz13cSROB89Q";
+    const NFTStorageToken = process.env["NFT_STORAGE_TOKEN "] || '';
     const client = new NFTStorage({token: NFTStorageToken})
     const metadata = await generateMetadata();
     console.log(metadata);
@@ -61,13 +53,17 @@ const DashboardPage: React.FC<DashboardPageInterface> = () => {
 
   const handleMint = async () => {
 
-    const tokenUri = deployMetadata();
+    const tokenUri = await deployMetadata();
+    console.log(wallet);
     if (wallet) {
       const ethersProvider = new ethers.BrowserProvider(wallet.provider, 'any')
       const signer = await ethersProvider.getSigner();
 
       const contract = new ethers.Contract(QuizScoreAddress, QuizScoreAbi, signer);
       await contract.awardItem(wallet.accounts[0].address, tokenUri);
+      alert('NFT minted!')
+    }else {
+      console.log('HERE')
     }
   };
 
