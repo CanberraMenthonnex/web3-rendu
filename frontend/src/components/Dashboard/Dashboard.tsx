@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import ContractCard from './ContractCard';
-import '../styles/_dashboard.scss';
+import ContractCard from '../ContractCard/ContractCard';
+import '../../pages/_dashboard.scss';
 
-const Dashboard = () => {
-  const [contracts, setContracts] = useState([]);
+interface DashboardInterface {}
+
+const Dashboard: React.FC<DashboardInterface> = () => {
+  const [contracts, setContracts] = useState<ContractItemInterface[] | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchContracts = async () => {
@@ -51,9 +55,10 @@ const Dashboard = () => {
     <div className="dashboard">
       <h2>Contrats</h2>
       <div className="dashboard-cards">
-        {contracts.map(contract => (
-          <ContractCard key={contract.id} contract={contract} />
-        ))}
+        {contracts?.length &&
+          contracts.map(contract => (
+            <ContractCard key={contract.id} contract={contract} />
+          ))}
       </div>
     </div>
   );
