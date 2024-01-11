@@ -35,6 +35,7 @@ const DashboardPage: React.FC<DashboardPageInterface> = () => {
             <Header accountAddress={accountAddress} />
             <h1>Tableau de bord</h1>
             <Dashboard />
+            <button onClick={handleMint}>TEST MINT</button>
           </div>
         </>
       ) : (
@@ -45,7 +46,6 @@ const DashboardPage: React.FC<DashboardPageInterface> = () => {
           </button>
         </div>
       )}
-      <button onClick={handleMint} disabled={connecting}>TEST MINT</button>
     </div>
   );
 };
