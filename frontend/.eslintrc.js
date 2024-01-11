@@ -2,15 +2,14 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true, // Ajouté pour prendre en charge l'environnement Node.js
+    node: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended', // Ajouté pour les recommandations TypeScript
-    'prettier',
+    'plugin:@typescript-eslint/recommended',
   ],
-  parser: '@typescript-eslint/parser', // Utilisez le parseur de TypeScript
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -23,17 +22,17 @@ module.exports = {
       version: 'detect',
     },
   },
-  plugins: ['react', '@typescript-eslint'], // Ajout du plugin TypeScript
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/prop-types': 0,
     'no-unused-vars': 'warn',
-    '@typescript-eslint/no-unused-vars': ['warn'], // Utilisez la règle TypeScript pour les variables non utilisées
+    '@typescript-eslint/no-unused-vars': ['warn'],
   },
   overrides: [
     {
-      files: ['*.ts', '*.tsx'], // Ajout de glob patterns pour les fichiers TypeScript
+      files: ['*.ts', '*.tsx'],
       rules: {
-        'no-undef': 'off', // Désactiver cette règle pour TypeScript
+        'no-undef': 'off',
       },
     },
   ],

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ContractCard from '../ContractCard/ContractCard';
 import '../../pages/_dashboard.scss';
+import { ContractItemInterface } from '../../utils/contract.interface';
 
-interface DashboardInterface {}
-
-const Dashboard: React.FC<DashboardInterface> = () => {
+const Dashboard: React.FC = () => {
   const [contracts, setContracts] = useState<ContractItemInterface[] | null>(
     null
   );

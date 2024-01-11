@@ -4,9 +4,7 @@ import { FaHome, FaSignOutAlt } from 'react-icons/fa';
 import './_sidebar.scss';
 import { useCustomWalltetConnection } from '../../hooks/useCustomWalltetConnection';
 
-interface SidebarInterface {}
-
-const Sidebar: React.FC<SidebarInterface> = () => {
+const Sidebar: React.FC = () => {
   const location = useLocation();
   const { handleDisconnect } = useCustomWalltetConnection();
   return (

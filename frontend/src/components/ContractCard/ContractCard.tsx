@@ -1,5 +1,6 @@
 import React from 'react';
 import './_contractCard.scss';
+import { ContractItemInterface } from '../../utils/contract.interface';
 
 interface ContractCardInterface {
   contract: ContractItemInterface;
